@@ -52,7 +52,9 @@
     "test:slow": "./node_modules/.bin/testcafe chrome e2e/*.testcafe.js --speed 0.1",
     "test:setup": "npm run build && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/",
     "prepublishOnly": "cd example/cli && npm install && cd ../../ && npm run build",
-    "e2e:tsc": "../node_modules/.bin/tsc --p e2e/tsconfig.json"
+    "e2e:tsc": "../node_modules/.bin/tsc --p e2e/tsconfig.json",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "dist/"
@@ -66,7 +68,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "mobx": "^4.15.1"
+    "mobx": "^4.15.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@angular-devkit/core": "^8.1.0",
@@ -147,5 +150,6 @@
         "lint-staged"
       ]
     }
-  }
+  },
+  "snyk": true
 }
